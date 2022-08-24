@@ -1,0 +1,47 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+  <!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/g.css') }}"> -->
+</head>
+<body>
+  <!-- If user is authenticated -->
+  
+  {% if user_id %}
+  <div class="box">
+    <h1>Replit Wallet [beta]</h1>
+    <p>{{ user_name }}</p>
+    <h3>Bitcoin Price</h3>
+    <p>${{ btc_price }} USD</p>
+    <h3>Your BTC address:</h3>
+    <p>{{ address }}</p>
+    <h3>Wallet Balance</h3>
+    <p>{{ btc_balance }} BTC</p>
+    
+    <a href="https://wallet.sorenrood.repl.co/setupBTCSend">
+    <input type="button" value="Send BTC" />
+    </a>
+
+    <a href="https://wallet.sorenrood.repl.co/downloadBTCWallet">
+    <input type="button" value="Export BTC Wallet"/>
+    </a>
+
+    <a href="https://www.blockchain.com/btc/address/{{address}}" target="_blank">
+      <input type="button" value="Wallet details"/>
+      </a>
+    
+    <hr>
+
+    <p>Note: if any of the fields above are erroring, it is just an API issue. Your wallet is 100% safe. For the most detailed overview of your wallet, click "Wallet details".</p>
+    
+    <p>For support, reach out to <a href="https://twitter.com/roodsoren" target="_blank">Søren</a> on Twitter.</p>
+  </div>
+  
+
+    <!-- If user is NOT authenticated -->
+    {% else %}
+    <h1>Replit Wallet</h1>
+    <div>
+        <script authed="location.reload()" src="https://auth.turbio.repl.co/script.js"></script>
+    </div>
+    {% endif %}
+</body>

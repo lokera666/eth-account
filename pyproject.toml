@@ -1,48 +1,17 @@
-[tool.towncrier]
-# Read https://github.com/ethereum/eth-account/newsfragments/README.md for instructions
-package = "eth_account"
-filename = "docs/release_notes.rst"
-directory = "newsfragments"
-underlines = ["-", "~", "^"]
-title_format = "eth-account v{version} ({project_date})"
-issue_format = "`#{issue} <https://github.com/ethereum/eth-account/issues/{issue}>`__"
+[tool.poetry]
+name = "repl_python3_beta_bitcoin-wallet-generator"
+version = "0.1.0"
+description = "Replit Wallet"
+authors = ["Soren Rood <sorenrood@gmail.com>"]
 
-[[tool.towncrier.type]]
-directory = "feature"
-name = "Features"
-showcontent = true
+[tool.poetry.dependencies]
+python = "^3.8"
+flask = "^1.0.0"
+pywallet = "^0.1.0"
+replit = "3.0.0"
+bit = "^0.7.2"
+[tool.poetry.dev-dependencies]
 
-[[tool.towncrier.type]]
-directory = "bugfix"
-name = "Bugfixes"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "performance"
-name = "Performance improvements"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "doc"
-name = "Improved Documentation"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "removal"
-name = "Deprecations and Removals"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "internal"
-name = "Internal Changes - for eth-account Contributors"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "misc"
-name = "Miscellaneous changes"
-showcontent = false
-
-[[tool.towncrier.type]]
-directory = "breaking"
-name = "Breaking changes"
-showcontent = true
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

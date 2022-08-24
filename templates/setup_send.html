@@ -1,0 +1,29 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+  <!-- If user is authenticated -->
+    {% if user_id %}
+    <h1>Replit Wallet</h1>
+    <a href="https://wallet.sorenrood.repl.co/">
+    <input type="button" value="back" />
+    </a>
+    <h3>Sending is in beta. Make sure to take a look at the current <a href="https://ycharts.com/indicators/bitcoin_average_transaction_fee" target="_blank">network fees</a>.</h3>
+    <form action="https://wallet.sorenrood.repl.co/sendBTC" method="post">
+      <span>To what BTC address?</span>
+      <input name="address" required></input>
+
+      <span>Amount? (in BTC)</span>
+      <input name="BTC" required></input>
+
+      <input type="submit" value="Send"></input>
+    </form>
+
+    <!-- If user is NOT authenticated -->
+    {% else %}
+    <h1>Replit Wallet</h1>
+    <div>
+        <script authed="location.reload()" src="https://auth.turbio.repl.co/script.js"></script>
+    </div>
+    {% endif %}
+</body>
